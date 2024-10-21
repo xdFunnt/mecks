@@ -3,3 +3,4 @@ class Text:
         self.text = text
         self.children = []
         self.parent = parent
+        child.parent = self
