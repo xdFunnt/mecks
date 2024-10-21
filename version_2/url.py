@@ -7,6 +7,7 @@ class URL:
     scheme://host/path    
     '''
     def __init__(self, url):
+        #self.connection = "close"
         self.scheme, url = url.split("://",1)
         assert self.scheme in ["http", "https"]
         if self.scheme == "http":
@@ -40,6 +41,7 @@ class URL:
 
         request = "GET {} HTTP/1.0\r\n".format(self.path)
         request += "Host: {}\r\n".format(self.host)
+        # request += "Connection: {}\r\n".format(self.connection)
         request += "\r\n"
         s.send(request.encode("utf8"))
         
